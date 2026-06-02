@@ -1,0 +1,26 @@
+[package]
+name = "codex-budget-guard"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Budget enforcement for OpenAI Codex CLI — daily/weekly/monthly token limits, phase detection, auto-throttle, and Serde auditing snapshots."
+repository = "https://github.com/SuperInstance/codex-budget-guard"
+keywords = ["codex", "token", "budget", "conservation", "throttle"]
+
+[dependencies]
+conservation-checker = { path = "/tmp/codex-conservation-checker", features = ["serde"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+chrono = { version = "0.4", features = ["serde"] }
+thiserror = "2"
+
+[dev-dependencies]
+tempfile = "3"
+
+[[example]]
+name = "integrated"
+path = "examples/integrated.rs"
+
+[[example]]
+name = "phase_demo"
+path = "examples/phase_demo.rs"
